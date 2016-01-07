@@ -2,23 +2,23 @@
 
 madlib = "Volcanoes are the best places for throwing your " 
 
-
 adjective = input("Please give an adjective: ")
+
 plural_noun = input("Please give a plural noun: ") 
 
-madlib = madlib + adjective + " " + plural_noun + ". Most people avoid volcanoes, but they can be very useful. First, you should " #adding pl noun to madlib
+madlib = madlib + adjective + " " + plural_noun + ". Most people avoid volcanoes, but they can be very "  #adding pl noun to # madlib changes value of original madlib variable to include the new input
 
-verb= input("Please give a verb: ")
+adjective= input("Please give an adjective: ")
 
-madlib = madlib + verb + " the volcano that is right for you.  You'll need a "
+madlib = madlib + adjective + ". First, you'll need to locate the volcano that is right for you.  Bring a "
 
 noun = input("Please give a noun: ")
 
-madlib = madlib + noun + ", a shovel, and an enthusiastic friend.  Take a deep breath, toss in all your "
+madlib += noun + ", a shovel, and an enthusiastic friend.  Take a deep breath, toss in all your "
 
 plural_noun= input("Please give a plural noun: ")
 
-madlib = madlib + plural_noun + ", and enjoy a pleasant future."
+madlib += plural_noun + ", and enjoy a pleasant future." #madlib += is the same thing as madlib =madlib + 
 
 print(madlib)
 
