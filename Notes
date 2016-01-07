@@ -12,6 +12,15 @@ mkdir NAME --make a directory folder named NAME where you're working
 
 gitclone --makes a copy for you online.  Git is how you make the save files to go back to, so you don't have to redo all your work. (version-controlled software)
 
+git status
+
+git add--put this new thing in your online place
+
+git commit -m "Notes about the important thing you changed"
+
+git push
+
+
 
 
 
