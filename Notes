@@ -15,5 +15,24 @@ gitclone --makes a copy for you online.  Git is how you make the save files to g
 
 
 
-
 variable = <name> = a place to store stuff, a location.  Assign a variable--give it a name, and make it equal to something.
+
+FUNCTIONS
+
+functions-bit of code written that only works when it's called for
+define function-    defFunction_name(inputbutcanbeblank):
+						tab in for the
+						rest of the function
+						untab when function is done
+						functions can have outputs, say return 'whattosay'
+
+def make_coffee(grounds, hot_water) #defining the function. Make coffee needs 2 inputs, grounds and hot_water.  You don't have to have inputs, either.
+	coffee= (grounds + hot_water) -grounds
+	return coffee
+
+my_coffee= make_coffee ('stumptown', 'purified water') #calling the function, telling what variables to use
+
+
+
+
+
