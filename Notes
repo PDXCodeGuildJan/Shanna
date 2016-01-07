@@ -1,0 +1,19 @@
+cd shows current directory
+git status -setting up for initial commit
+git add FILENAME--adds git to track changes
+
+ls --shows what is in the directory you're working in (current directory)
+
+pwd --shows where you are currently are.  Where am I?
+
+cd -- change directory.  use it with a path (where you wanna change to) (like cd documents)
+ ../ takes you up a directory 
+mkdir NAME --make a directory folder named NAME where you're working
+
+gitclone --makes a copy for you online.  Git is how you make the save files to go back to, so you don't have to redo all your work. (version-controlled software)
+
+
+
+
+
+variable = <name> = a place to store stuff, a location.  Assign a variable--give it a name, and make it equal to something.
