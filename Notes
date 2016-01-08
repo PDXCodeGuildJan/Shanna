@@ -21,9 +21,6 @@ git commit -m "Notes about the important thing you changed"
 git push
 
 
-
-
-
 variable = <name> = a place to store stuff, a location.  Assign a variable--give it a name, and make it equal to something.
 
 FUNCTIONS
@@ -41,6 +38,29 @@ def make_coffee(grounds, hot_water) #defining the function. Make coffee needs 2 
 
 my_coffee= make_coffee ('stumptown', 'purified water') #calling the function, telling what variables to use
 
+
+some functions like print are always available, but if you want to use something like randomint, you'll have to import it... see die.py
+
+#Make a function called custom_die that takes a range and prints a random #number in that range
+def custom_die(x, y): #x and y are the buckets you hold your variables in
+	roll=randint(x, y) #this tells computer to pick anything between x and y
+	print(roll)
+
+custom_die(3, 100) #this calls the function and passes it 3 and 100 for x and y
+
+identical to
+
+def custom_die(num1, num2): 
+	print (randint(num1, num2))
+
+
+FOR LOOPS
+
+for THING in OTHERTHING THAT MUST BE A SEQUENCE: 
+	print(THING)
+	more tabby tabs in
+
+by default, python loops through everything inside of OTHERTHING, and stores the value in THING.  
 
 
 
