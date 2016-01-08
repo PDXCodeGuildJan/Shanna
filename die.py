@@ -26,7 +26,7 @@ def main():
 	
 
 	#Roll that many dice. You'll need a FOR LOOP here.
-	for something in range(0, total_rolls): 
+	for something in rang, total_rolls): 
 		custom_die(1, max_num)
 
 main()
