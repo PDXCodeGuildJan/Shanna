@@ -4,35 +4,53 @@ from random import randint #import python function random-you have to tell it #t
 #Make a die function that returns a random number
 def die (): #defines function die
 	roll=randint (1,6)
-	print(roll) #this print function always available
+	print(roll) 
 
 #Make a function called custom_die that takes a range and prints a random #number in that range
-def custom_die(x, y): #x and y are the buckets you hold your variables in
-	roll=randint(x, y) #this tells computer to pick anything between x and y
-	print(roll)
 
+def custom_die(num1, num2): #num1 and num2 are the buckets you hold your variables in
+	roll=randint(num1, num2) #this tells computer to pick anything between
+	
+#determine if max or min 
+
+	if roll == num1: #num1 is min in range
+		print(num1, "Critical fail!") #feeding print statement multiple arguments
+	elif roll == num2:  #num2 is max in range
+		print(num2, "Critical hit!")
+	else: #if neither, print only the number.
+		print(roll)
 
 def main(): 
-	#Ask the user how many dice to roll
-	total_rolls = input("How many dice do you want to roll?")
+	print("Welcome to Die Roller. Enter q to exit.")
 
-	#Convert input string to integer. Called casting.
-	total_rolls= int(total_rolls)
-
-
-
-	#How big are the dice? Can nest int and input, to convert from string.
-	max_num = int(input("How many sides on the dice?"))
+	entree = "" #empty string, must make it not equal q.
 	
+	while entree != "q":
 
-	#Roll that many dice. You'll need a FOR LOOP here.
-	for something in rang, total_rolls): 
-		custom_die(1, max_num)
+		entree = input("How many dice do you want to roll?")
+		if entree == "q":
+			#exit the program. can avoid repeat in line 34 with a function.
+			exit()
 
+		#Convert input string to integer. Called casting.
+		#it's not q, it has to be total rolls, assign to total_rolls
+		total_rolls= int(entree)
+
+		#How big are the dice? Can nest int and input, to convert from string.
+		entree = input("How many sides on the dice?")
+
+		if entree == "q":
+			#exit the program
+			exit()
+		#already checked to see entree wasn't q, now turn that entree into an int
+		max_num= int(entree)
+		
+
+		#Roll that many dice. You'll need a FOR LOOP here.
+		for something in range(0,total_rolls): 
+			custom_die(1, max_num) #this prints the number
+			
+	
 main()
-
-
-
-
 
 
