@@ -1,3 +1,6 @@
+#This madlib prompts for five words and puts it into a story
+print("Let's make a story!")
+
 adjective1 = input("Please give an adjective: ")
 plural_noun1 = input("Please give a plural noun: ")
 adjective2= input("Please give an adjective: ")

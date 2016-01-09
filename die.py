@@ -1,7 +1,7 @@
-
-from random import randint #import python function random-you have to tell it #to do this. Randint takes two variables and #picks one randomly. 
-
 #Make a die function that returns a random number
+from random import randint #import python function random-you have to tell it to do this. 								Randint takes two variables and picks one randomly. 
+
+
 def die (): #defines function die
 	roll=randint (1,6)
 	print(roll) 
@@ -14,7 +14,11 @@ def custom_die(num1, num2): #num1 and num2 are the buckets you hold your variabl
 #determine if max or min 
 
 	if roll == num1: #num1 is min in range
-		print(num1, "Critical fail!") #feeding print statement multiple arguments
+		print(num1, "Critical fail!") #feeding print statement multiple arguments.
+		#Can also be if roll == num1:
+			#print("{r} Critical fail".format(r=roll))
+# do the dot format like this, instead of commas or pluses "{name} is {age} and is from 
+#{place}".format(name=name, age=age, place=place)
 	elif roll == num2:  #num2 is max in range
 		print(num2, "Critical hit!")
 	else: #if neither, print only the number.
@@ -28,7 +32,7 @@ def main():
 	while entree != "q":
 
 		entree = input("How many dice do you want to roll?")
-		if entree == "q":
+		if entree.lower() == "q": #this converts all input to lowercase. .upper also a thing
 			#exit the program. can avoid repeat in line 34 with a function.
 			exit()
 

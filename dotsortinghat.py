@@ -1,7 +1,6 @@
 #Greet w/instruction
-#Assign random house
-#print random house  
-#
+#Assign house at random
+#print house designation with description
 
 from random import choice
 
@@ -23,8 +22,3 @@ def sorting_hat():
 			#print("{r} Critical fail".format(r=roll))
 # do the dot format like this, instead of commas or pluses "{name} is {age} and is from 
 #{place}".format(name=name, age=age, place=place)
-
-
-
-sorting_hat()
-
