@@ -26,9 +26,9 @@ def hangperson():
    currentState = []   #creates a list called currentState
    for x in listedWord: #the for loop will iterate over every character in listedword
       currentState.append("_") #for every character in listedword, add a dash to current state
-   
-   printHangperson(currentState)   # Print the initial state of the game
    incorrect = [] #creates an empty list for storing wrong guesses
+   printHangperson(currentState, incorrect)   # Print the initial state of the game
+   
 
    # Start the game! Loop until the user either wins or loses. This while loop runs the whole game.
 
@@ -37,8 +37,8 @@ def hangperson():
       guess=userGuess() #calls userGuess function 
       bundledLists = updateState(guess, currentState, incorrect) 
       currentState = bundledLists[0]
-      incorrect = bundledLists [1]
-      printHangperson(currentState) #calls function Hangperson and passes it the currentState variable
+      incorrect = bundledLists[1]
+      printHangperson(currentState, incorrect) #calls function Hangperson and passes it the currentState variable
       if currentState == listedWord: #if the currentState equals the listed word you won
          print ("Yay!  You won!")
       elif numWrong >= 6: #if your wrong tries numWrong is more than six, you lose
@@ -64,8 +64,8 @@ def updateState(guess, currentState, incorrect):
    if numInWord == 0: 
       numWrong = numWrong +1 #can shorthand with numWrong +=1. Updates numWrong with each missed try
       incorrect.append(guess) #this adds the incorrect answers to the list we created to hold them.
-      print ("Nope. Try again, please.")
-   else numInWord > 0: 
+      print("Nope. Try again, please.")
+   elif numInWord > 0: 
       print("Way to go! You found {0} of the letter {1} in the mystery word ".format(numInWord, guess))
       #can also say print ("Way to go! You found" str(numInWord) + "of the letter" + {guess} + "in the mystery word. ")
 
@@ -78,7 +78,7 @@ def updateState(guess, currentState, incorrect):
          numFound+=1 #this updates the number of letters we've found 
 
       index +=1 #shorthand for updating index variable, runs the loop checking the next position each time
-   return currentState
+   return [currentState, incorrect]
 
 def userGuess():
    guess = input("Guess a letter in the word! (Type 'exit' to stop playing) ") #prompts for guess
@@ -114,8 +114,8 @@ def printHangperson(state, incorrect):
       print(i, end=" ")
 
    print("\n")
-   print (incorrect)
-   print ()
+   print(incorrect)
+   print()
 
 # This line runs the program on import of the module
 hangperson()
