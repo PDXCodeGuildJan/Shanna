@@ -98,7 +98,7 @@ def userGuess():
 # DO NOT CHANGE
 #
 # state: current state of the word. Pass current state.
-def printHangperson(state):
+def printHangperson(state, incorrect):
    person = [" O "," | \n | ", "\| \n | ", "\|/\n | ", "\|/\n | \n/  ", "\|/\n | \n/ \\"]
    print()
 
@@ -114,6 +114,8 @@ def printHangperson(state):
       print(i, end=" ")
 
    print("\n")
+   print (incorrect)
+   print ()
 
 # This line runs the program on import of the module
 hangperson()
