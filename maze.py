@@ -2,7 +2,19 @@ import sys
 
 #create a text based maze with five rooms, including the start and finish, and handle incorrect inputs gracefully. For extra coolness, handle inputs without case-sensitivity, add a trap, output the path taken at the finish.
 
-#Dear Shanna, you need a way to quit the game and also a way to store/give back the path taken
+#Dear Shanna, you need a way to store/give back the path taken. to keep the stack not too overflowy, you can return instead of call the function.  Make  Make them look like this:
+    #if direction == "north"
+    #   return pterodactyls
+    # pterodactyls = start ()
+    #  while pterodactlys
+
+    #after def main ():
+    #   current_room =start #this is a start function, runs after we open main
+    #   while current_room != finish:
+        #new_room = current_room()
+        #current_room = new_room
+#call finish
+    #current_room()
 
 1#Greet
 def main():

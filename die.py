@@ -1,7 +1,5 @@
 #Make a die function that returns a random number
 from random import randint #import python function random-you have to tell it to do this. 								Randint takes two variables and picks one randomly. 
-
-
 def die (): #defines function die
 	roll=randint (1,6)
 	print(roll) 
