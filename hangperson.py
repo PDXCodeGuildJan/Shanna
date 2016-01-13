@@ -35,7 +35,9 @@ def hangperson():
    while currentState != listedWord and numWrong < 6: #numWrong = remaining turns
    #First, ask user to guess, and store the information in variable "guess"
       guess=userGuess() #calls userGuess function 
-      currentState = updateState(guess, currentState, incorrect)
+      bundledLists = updateState(guess, currentState, incorrect) 
+      currentState = bundledLists[0]
+      incorrect = bundledLists [1]
       printHangperson(currentState) #calls function Hangperson and passes it the currentState variable
       if currentState == listedWord: #if the currentState equals the listed word you won
          print ("Yay!  You won!")
@@ -63,8 +65,7 @@ def updateState(guess, currentState, incorrect):
       numWrong = numWrong +1 #can shorthand with numWrong +=1. Updates numWrong with each missed try
       incorrect.append(guess) #this adds the incorrect answers to the list we created to hold them.
       print ("Nope. Try again, please.")
-
-   elif numInWord > 0: 
+   else numInWord > 0: 
       print("Way to go! You found {0} of the letter {1} in the mystery word ".format(numInWord, guess))
       #can also say print ("Way to go! You found" str(numInWord) + "of the letter" + {guess} + "in the mystery word. ")
 
