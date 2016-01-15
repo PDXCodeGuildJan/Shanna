@@ -31,7 +31,7 @@ def selectionsort(unsortedlist):
 
 #this line gets the length of the unsorted part of the list by slicing from position
 #which is the variable holding the start index of the unsorted part, to the end.     
-      while nownumindex < len(unsortedlist[position:]):
+      while nownumindex < len(unsortedlist):
 #if the variable stored at the address we're at (nownumIndex) is less than the 
 #current lowest variable, which lives at lowestindex, the address of the newly 
 #identified lowest variable becomes the new lowestindex. 
