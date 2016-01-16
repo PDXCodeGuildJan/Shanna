@@ -1,9 +1,11 @@
 
-
+#
 def main():
+#displays unsorted list
    unsortedlist = [27, 89, 5, 11, 15]
    print(unsortedlist)
-   sortedlist = selectionsort(unsortedlist)
+#displays sorted list
+   sortedlist = bubblesort(unsortedlist)
    print(sortedlist)
 
 def selectionsort(unsortedlist):
@@ -52,8 +54,54 @@ def selectionsort(unsortedlist):
 
    return unsortedlist
       
-main()  
 
+
+#BUBBLE SORT
+
+#if the first value in the unsorted list isn't the last, continue
+#if the current value in the unsorted list is the last value in the unsorted list,
+#stop
+
+#     locate first value in unsorted list
+#     compare found value w/value in index to right
+#        if left value > right value:
+#        swap
+#        if left value < right value:
+#        move one index to the left
+#        repeat
+
+   
+#this loop moves the 
+def bubblesort(unsortedlist):
+   
+   #number of variables in unsortedlist
+   unsort_len = len(unsortedlist)
+   #length of the full list
+   length = len(unsortedlist)
+
+   while unsort_len > 1 :
+      #value stored at the index we are currently looking at, beginning of unsortedlist
+      workingind = 0
+
+      while workingind < unsort_len-1:
+
+         workingval = unsortedlist[workingind] 
+         neighbor = unsortedlist[workingind +1] 
+         
+         if workingval > neighbor:
+       
+            temp = unsortedlist[workingind]
+            unsortedlist[workingind] = unsortedlist[workingind +1]
+            unsortedlist[workingind +1] = temp
+
+         workingind += 1
+         
+      
+      unsort_len -=1  
+   return unsortedlist
+
+main()
+     
 
  
 
