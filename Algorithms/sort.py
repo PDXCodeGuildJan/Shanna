@@ -1,5 +1,6 @@
 #make a place (empty list) to hold the unsorted variables
-#make a place (empty list) to hold the sorted variables. Not sure if this is necessary.
+#make a place (empty list) to hold the sorted variables. Not sure if this is 
+#necessary.
 unsortedlist = [117, 48, 5, 22, 4, 0, 87] 
 
 sortedlist = [] #current state every iteration except first
@@ -24,9 +25,9 @@ def selection_sort (unsortedlist):
 
 # computer moves that number to index 1.  
 
-#former index 1 number swapped out where second smallest number used to live, ad nauseum.
+#former index 1 number swapped out where second smallest number used to live, 
+#ad nauseum.
    
-
 
 #calls function and passes it the unsortedlist
 selection_sort(unsortedlist)

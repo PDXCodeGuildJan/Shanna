@@ -95,12 +95,94 @@ def bubblesort(unsortedlist):
             unsortedlist[workingind +1] = temp
 
          workingind += 1
+
+#def bubbleSort(alist):
+ #   for passnum in range(len(alist)-1,0,-1):
+ #       for i in range(passnum):
+ #           if alist[i]>alist[i+1]:
+ #               temp = alist[i]
+ #               alist[i] = alist[i+1]
+ #               alist[i+1] = temp
+
+#alist = [54,26,93,17,77,31,44,55,20]
+#bubbleSort(alist)
+#print(alist)
          
+
+#MAKE INSERTION SORT FOR THE WEEKEND AND HAVE IT WORKING
+#read chapter 5-8, 13
+
+#TURN SWAP INTO A FUNCTION
+#Swaps the values in the two passed indexes of the passed list
+def swap(unsortedlist, index1, index2):
+   temp = unsortedlist[index1]
+   unsortedlist[index1] = unsortedlist[index2]
+   unsortedlist[index2] = temp
+
+   unsortedlist=swap(unsortedlist, index1, index2)
       
-      unsort_len -=1  
+   unsort_len -=1  
    return unsortedlist
 
 main()
+
+def swap(unsortedlist):
+   unsortedlist[index1], unsortedlist[index2] = unsortedlist[index2], unsortedlist[index1]
+   
+   return unsortedlist
+
+
+
+#x-1 passes to sort x values
+
+#INSERTION SORT
+#Find the start of the unsorted list.
+#Begins at index 1, the start of the unsorted list.
+#Compare working number with number at the beginning of the unsorted list.
+#If working number > number at start of unsorted list,
+#  insert in numerical order in sorted list
+#     which means you have to compare the first pair
+#        # if workingval > neighbor 
+
+# What values do we need?
+#  Beginning of unsorted list = position
+#  Length of full list = numinlist (to tell when to stop iterating)
+#  
+
+#  Value of variable stored at position = workingval 
+#  Which should be compared to the value of variable stored nextdoor, position -1 
+
+
+def main():
+   sortedlist = insertionsort(5, 21, 11, 93, 55)
+   print(sortedlist)
+
+def swap (thelist, index1, index2): 
+#swaps two items in a list
+   thelist[index1], thelist[index2] = thelist[index2], thelist[index1]
+   return thelist
+
+def insertsort(thelist):
+ 
+#this loop moves the start of the unsorted list one index forward
+    for startindex, value in enumerate(thelist): 
+
+#temp variable for the index of the thing we're currently sorting
+      lostindex = startindex
+      lostvalue = value
+
+#while the value stored at the lostindex < the value stored at the lostindex -1, the neighbor, AND the lost_index <1, keep 
+      while (lostvalue < thelist[lostindex - 1] and lostindex > 0):
+#swapping the lostvalue with its adjacent value
+         thelist = swap(thelist, lostindex, lostindex -1)
+         
+# the lostindex moves left one space with each iteration  
+         lostindex -=1
+
+    return thelist
+
+main()
+
      
 
  
