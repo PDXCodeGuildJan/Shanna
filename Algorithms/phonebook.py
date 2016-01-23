@@ -133,9 +133,8 @@ def load_phonebook():
    global phonebook
    #Open the file in write mode first, to create one if does not already exist
    
-   load_file = open("phonebook.txt", "w")
+   load_file = open("phonebook.txt", "r+")
    load_file.close()
-   input()
    #Open file in read mode so we can read from it
    load_file = open("phonebook.txt" , "r")
    phonebook_data = load_file.read()
