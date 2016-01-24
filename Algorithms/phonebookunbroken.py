@@ -4,15 +4,12 @@ __author__= "Shanna Louise"
 
 # Initialize our dictionary, which will store our phone numers
 phonebook = {}
-#debug this whole dadgum thing
-#fix search by number case sensitive tangle
+#fix search by number formatting
 #regex function 
-#modify phone book to scrub phone number and format it the same way
 #add a "do you want to add another? " option to add contact
 #you can learn .format for strings to tidy columns (string formatting)
 def main():
    """The main driver function of our phonebook."""
-
    #Load any existing data into phone book
    load_phonebook()
    print("Phone book after load:", phonebook)
@@ -28,7 +25,7 @@ def main():
          name = input("What is the new contact's name? ")
          number = input("What is " + name + "'s number? ")
          add_contact(name, number) 
-   #THIS ISN'T WORKING BUT KEEP TRYING
+#THIS ISN'T WORKING BUT KEEP TRYING
 #         pass
 #         answer = input("Would you like to add another contact? \n"
 #                          "(Y)es\n(N)o"
@@ -37,7 +34,6 @@ def main():
       elif option == "D" :
          name = input("What contact are you removing? ")
          delete_contact(name)
-         print(name + "has been deleted from the phone book.")
       elif option == "S":
          name = input ("What name would you like to search? ")
          search(name)
@@ -74,41 +70,45 @@ def add_contact(name, phonenumber):
    phonebook[name] = formatted_num
    print("New contact: "+ name +  " was added with number: " + formatted_num)
    print("")
-
    #save updated phonebook
    save_phonebook()
 
-def delete_contact(name):
+def delete_contact(delete_name):
    """Removes the given contact from the phone book."""
-   del phonebook[name]
-   print(name, "was removed from the phonebook. ")
-   #save updated phonebook
-   save_phonebook()
+   name = delete_name
+   if delete_name in phonebook:
+         del phonebook[name] 
+         print(name + " was removed from the phone book.") 
+         #save updated phonebook
+         save_phonebook()
+   else:
+      print(delete_name + " was not in the phone book.")
+      return None
 
 def search(search_name):
    """Find and print the info of a contact, when given the name."""
-   result = ""
    for name, number in phonebook.items():
-      if search_name == name:
-         number = phonebook[name]  
+      if search_name == name: 
          print(name, "'s number is", number, "\n")
-      else:
-         print("Sorry, we couldn't match that name with a number.")
-         break
+         return (number)
+   print("Sorry, we couldn't match that name with a number.")
+   return None
+       
 def search_by_number(search_number):
    """Find who a certain number is associated with."""
    #this returns a list of tuples with key: value pairs
    #can also be written: "for key, value in dictionary.items" You can assign key and value
    #if you make a function for your regex number fixing, you could save code.
    #call it right before you result
-   result = " "
+   result = ""
    for name, number in phonebook.items(): 
       if search_number == number:
-         print(number,"'s name is" , name , "/n")
-         result
+         print(name, "'s number is" , number, "\n")
+         return(name)
+         print(name)
    #when ordering this, always have the if key is in dict first, then the if it isn't scenario
-      else:
-         print("Sorry, no contact has that number.  You're not alone, though. "/n)
+   print("Sorry, no contact has that number.")
+   return None
 
 def print_phonebook():
    """Prints all contacts in the phone book, all tidy. """
@@ -135,8 +135,7 @@ def load_phonebook():
 #  convert from a string to a dictionary-that changes the location),we have to
 #  give the computer permission to update the global 
    global phonebook
-   #Open the file in write mode first, to create one if does not already exist
-   
+   #Open the file in write mode first, to create one if does not already exist  
    load_file = open("phonebook.txt", "r+")
    load_file.close()
    #Open file in read mode so we can read from it
