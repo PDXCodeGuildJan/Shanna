@@ -27,9 +27,9 @@ def read_code(morse_msg_filename):
    list_of_words = re.split("       ", morse_msg)
    for word in list_of_words: 
       #wherever there are three spaces, make a string of the things between the three-spaces
-      list_of_letters = re.split("   ", list_of_words)
+      list_of_letters = re.split("   ", word)
 
-   print(list_of_words)
+      print(list_of_words)
    print (list_of_letters)
 
    #look into the morse dictionary at each letter: code tuple
