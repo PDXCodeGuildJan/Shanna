@@ -3,13 +3,11 @@ from morse import morse
 import re
 __authors__ = "Dre and Shanna"
 
-
+#make a function for opening and saving a file
 def main():
-
-   write_code("Corgis are the best breed of dog, I don't care what you say.", "dragons.txt")
    """The main driver function of our translation program"""
-
-   read_code("test_code.txt")
+   write_code("I need a volcano.", "dragons.txt")
+   print(read_code("dragons.txt"))
 
 #takes a string containing a reference to the file containing Morse message
 def read_code(morse_msg_filename):
@@ -23,32 +21,34 @@ def read_code(morse_msg_filename):
    #translates contents of Morse file
    #empty variable to hold newly decoded string
    decoded_string = ""
+   decoded_word = ""
    #wherever there are seven spaces, make a list of the things between the seven-spaces
    list_of_words = re.split("       ", morse_msg)
    for word in list_of_words: 
       #wherever there are three spaces, make a string of the things between the three-spaces
-      list_of_letters = re.split("   ", word)
-
-      print(list_of_words)
-   print (list_of_letters)
-
-   #look into the morse dictionary at each letter: code tuple
-   
+      list_of_letters = re.split("   ", word)      
+      #look into the morse dictionary at each letter:code tuple
+   #for each morse letter in the list of morse letters
+      for morse_letter in list_of_letters :
+   #the results of the search function(a new morse letter
+         decoded_word += search(morse_letter) 
+      #adds a space to the decoded word
+      decoded_word += " "
+   return decoded_word
+      
+def search (search_code):
+      for letter, code in morse.items():
       #if the searched for string (code) shows up in the tuples anywhere
-
+         if search_code == code:
          #create a new string of the keys associated with this value in tuples 
-      
-      #look back at the dictionary with the morse code parsed into morse_clumps
+            return letter
+      return "" #for debugging, to catch anything that isn't in dict
+            
+   #writes new English translation to string
 
-      #
-      
-#writes new English translation to string
-
-#returns a string
-
-
-#take English string and
-#take string (filename you will write morse translation to)
+   #returns a string
+   #take English string and
+   #take string (filename you will write morse translation to)
 
 def write_code(eng_string, morse_filename): 
    """This function takes an English string and translates it into Morse code"""
@@ -61,18 +61,21 @@ def write_code(eng_string, morse_filename):
          #get the value at the letter key
          code = morse[character]
          #put morse value in an empty string, at the same position, and three spaces
-
          #which separate characters in morse.
          encoded_string += code + "   "
       #if character is a space in eng_string
       elif character == " ":
          #replace with seven morse spaces
+         encoded_string += "       "
          #opens a file with the given filename
-         open_file = open(morse_filename, "w")
+   open_file = open(morse_filename, "w")
          #adds the encoded_string to the file
-         open_file.write(encoded_string)
+   open_file.write(encoded_string)
          #closes and saves file
-         open_file.close()
+   open_file.close()
+
+def save_file(filename):
+   open_file = open(filename)
 
 
 if __name__=='__main__':
