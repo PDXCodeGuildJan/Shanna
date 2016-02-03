@@ -16,7 +16,7 @@ def main():
    #Load any existing data into phone book
    load_phonebook()
    print("Phone book after load:", phonebook)
-   print ("Welcome to the phone book.\nIt's all going to be ok. ")
+   print ("Welcome to the phone book.\nYour friends are here for you. ")
    option = " "
    while option != "E" :
       #Ask the user what they want to do
@@ -25,19 +25,16 @@ def main():
                   "Which would you like to do? \n")
       option = option.upper()
       if option == "A":
-         name = input("What is the new contact's name? ")
-         number = input("What is " + name + "'s number? ")
-         add_contact(name, number) 
-   #THIS ISN'T WORKING BUT KEEP TRYING
-#         pass
-#         answer = input("Would you like to add another contact? \n"
-#                          "(Y)es\n(N)o"
-#           if answer == "Y":
-#                  add_contact(name, number)
+         new_contact(name, number)
+         answer = input("Would you like to add another contact? \n"
+                          "(Y)es\n(N)o"
+ #        while answer == "Y":
+ #          new_contact(name, number)   
+ #    option = option.upper()
       elif option == "D" :
          name = input("What contact are you removing? ")
          delete_contact(name)
-         print
+         print(name + "has been removed from contacts.")
       elif option == "S":
          name = input ("What name would you like to search? ")
          search(name)
@@ -51,6 +48,12 @@ def main():
          print_phonebook()
       else: 
          print("I'm a computer and I didn't understand. Try again, human. ")
+
+def new_contact():
+   name = input("What is the new contact's name? ")
+   number = input("What is the new contact's number?")
+   return new_contact(name, number)
+
 def add_contact(name, phonenumber):
    """Adds the given contact information to the phonebook.."""
    #remove any lingering white space that might have been added.  You have to pass the regex
@@ -86,7 +89,7 @@ def delete_contact(name):
    save_phonebook()
 
 def search(name):
-   name = name.upper()
+#find a way to handle case errors
    """Find and print the info of a contact, when given the name."""
    number = phonebook[name]  
    print(name, "'s number is", number, "\n")
@@ -131,9 +134,8 @@ def load_phonebook():
 #  convert from a string to a dictionary-that changes the location),we have to
 #  give the computer permission to update the global 
    global phonebook
-   #Open the file in write mode first, to create one if does not already exist
-   
-   load_file = open("phonebook.txt", "r+")
+   #Open the file in write mode first, to create one if does not already exist 
+   load_file = open("phonebook.txt", "a")
    load_file.close()
    #Open file in read mode so we can read from it
    load_file = open("phonebook.txt" , "r")

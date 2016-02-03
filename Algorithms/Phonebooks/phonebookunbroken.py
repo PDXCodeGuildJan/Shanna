@@ -87,12 +87,13 @@ def delete_contact(delete_name):
 
 def search(search_name):
    """Find and print the info of a contact, when given the name."""
-   for name, number in phonebook.items():
-      if search_name == name: 
-         print(name, "'s number is", number, "\n")
-         return (number)
+   #refactor this so that using the key brings us the value
+   #if the key is in the dictionary, 
+   if name in phonebook:
+   #get the value outta the dict at this key
+      number = phonebook[name]
+      print(name, "'s number is", number, "\n")
    print("Sorry, we couldn't match that name with a number.")
-   return None
        
 def search_by_number(search_number):
    """Find who a certain number is associated with."""
@@ -100,15 +101,15 @@ def search_by_number(search_number):
    #can also be written: "for key, value in dictionary.items" You can assign key and value
    #if you make a function for your regex number fixing, you could save code.
    #call it right before you result
-   result = ""
+   #computer, look through the key: value pairs in the dictionary
    for name, number in phonebook.items(): 
+      #if the thing we're looking for is equal to a value in number in there
       if search_number == number:
          print(name, "'s number is" , number, "\n")
          return(name)
-         print(name)
    #when ordering this, always have the if key is in dict first, then the if it isn't scenario
    print("Sorry, no contact has that number.")
-   return None
+
 
 def print_phonebook():
    """Prints all contacts in the phone book, all tidy. """

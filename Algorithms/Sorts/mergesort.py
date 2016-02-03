@@ -28,7 +28,8 @@ def merge_sort(a_list):
       #merge_sort the new left and right slices by re-feeding them to merge_sort
       #(recursively invoke merge sort on both new halves)
       left = merge_sort(a_list[:middle])
-      right = merge_sort(a_list[middle:])     
+      right = merge_sort(a_list[middle:]) 
+      #returning the merged list is essential to the recursion    
       return merge(left, right)
 #when the parts are sorted, merge is performed
 def merge(left, right):
